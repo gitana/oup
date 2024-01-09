@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+    #cloudCMS .newFeatureHead {
+        margin-top: 2.5rem;
+    }
+}
+
+#cloudCMS .newFeatureHead {
+    position: relative;
+}
+
+#cloudCMS .newFeatureHead .newFeatureDate {
+    font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    display: block;
+}
