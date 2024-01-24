@@ -90,3 +90,21 @@ Hide the "Actions" menu in the Document left-hand navigation for a specific user
 
 
 
+
+
+
+
+
+
+
+
+---
+
+config.src = "https://alb.primary.prod.gcms.the-infra.com/app/update-image-alt-text";
+
+others
+
+https://alb.primary.uat.gcms.the-infra.com
+https://alb.primary.prod.gcms.the-infra.com
+https://alb.primary.dev.gcms.the-infra.com
+

@@ -3,6 +3,8 @@ define(function (require, exports, module) {
     var Ratchet = require("ratchet/ratchet");
     var UI = require("ui");
     var $ = require("jquery");
+    
+    var Env = require("./env");
 
     return Ratchet.Actions.register("create-secondaryPage", UI.AbstractIFrameAction.extend({
 
@@ -13,7 +15,7 @@ define(function (require, exports, module) {
             config.iconClass = "glyphicon glyphicon-pencil";
             
             // the location of the "overlay app"
-            config.src = "https://alb.primary.prod.gcms.the-infra.com/app/create-page";
+            config.src = Env.baseUrl + "/app/create-page";
             
             // specify iframe width and height
             config.iframeWidth = "100%";
