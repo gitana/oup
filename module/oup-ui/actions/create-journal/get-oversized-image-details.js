@@ -3,7 +3,7 @@ define(function(require, exports, module) {
     var UI = require("ui");
     var $ = require("jquery");
     
-    var Env = require("./env");
+    var Env = require("./env.js");
   
     return Ratchet.Actions.register(
       "get-oversized-image-details",
