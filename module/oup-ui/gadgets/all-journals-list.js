@@ -10,7 +10,6 @@ define(function(require, exports, module) {
 
         setup: function()
         {
-
             this.get("/projects/{projectId}/documents/{documentId}/browse", this.index);
         },
 
@@ -86,13 +85,13 @@ define(function(require, exports, module) {
             //selectorGroup.actions = self.filterAccessRights(self, thing, model.buttons);
         },
 
-        afterSwap: function(el, model, context, callback)
-        {
-            var self = this;
-            this.base(el, model, context, function() {
-                callback();
-            });
-        },
+        // afterSwap: function(el, model, context, callback)
+        // {
+        //     var self = this;
+        //     this.base(el, model, context, function() {
+        //         callback();
+        //     });
+        // },
 
         getDefaultSortField: function(model)
         {
@@ -127,7 +126,7 @@ define(function(require, exports, module) {
                 Chain(branch).queryNodes(query, pagination).each(function() {
     
                     if(pagination.sort["sortOrder"] != null) {
-                        if(this.siteParent!= "Journals") {
+                        if(this.siteParent != "Journals") {
                             if(!this.familySite || this.familySite === "N") {
                                 this.indent = true;
                             }

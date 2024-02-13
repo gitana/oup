@@ -108,3 +108,8 @@ https://alb.primary.uat.gcms.the-infra.com
 https://alb.primary.prod.gcms.the-infra.com
 https://alb.primary.dev.gcms.the-infra.com
 
+
+
+TODO:
+    add team 'academic-editors'
+    most users need to be on this team

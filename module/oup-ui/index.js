@@ -48,7 +48,12 @@ define(function(require) {
     require("./fields/oup-ckeditor-field.js");
 
     // use this to globally control the position of helper text
-    Alpaca.defaultHelpersPosition = "above";  
-      
-      
+    Alpaca.defaultHelpersPosition = "above";
+
+    // after we update the screen, hide a few buttons we don't want to keep around
+    $("body").on("afterHandle", function(event, ratchet, completed) {
+        $(".dashlet.project-tasks .btn-start-workflow").hide();
+    });
+
+
 });
