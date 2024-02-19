@@ -4,7 +4,6 @@ define(function(require, exports, module) {
     var ContentInstancesList = require("app/gadgets/project/content/content-instances");
     var OneTeam = require("oneteam");
     var TemplateHelperFactory = require("template-helper");
-    var DocLib = require("doclib-helper");
 
     return Ratchet.GadgetRegistry.register("content-instances-for-oup-editors-team", ContentInstancesList.extend({
 
@@ -193,7 +192,10 @@ define(function(require, exports, module) {
                 query = {};
             }
 
-            OneTeam.projectBranch(self, function() {
+            debugger;
+            OneTeam.projectBranch(self, function(branch) {
+
+                debugger;
 
                 // selected content type
                 var selectedContentTypeDescriptor = self.observable("selected-content-type").get();
@@ -205,10 +207,9 @@ define(function(require, exports, module) {
 
                 query._type = selectedContentTypeDescriptor.definition.getQName();
 
-                OneTeam.projectBranch(self, function(branch) {
-                    DocLib.handleFindNodes(branch, query, null, pagination, function(err, result, map) {
-                        callback(map);
-                    });
+                DocLib.handleFindNodes(branch, query, null, pagination, function(err, result, map) {
+                    debugger;
+                    callback(map);
                 });
             });
         },
