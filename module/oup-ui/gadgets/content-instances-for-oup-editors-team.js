@@ -4,6 +4,7 @@ define(function(require, exports, module) {
     var ContentInstancesList = require("app/gadgets/project/content/content-instances");
     var OneTeam = require("oneteam");
     var TemplateHelperFactory = require("template-helper");
+    var DocLib = require("doclib-helper");
 
     return Ratchet.GadgetRegistry.register("content-instances-for-oup-editors-team", ContentInstancesList.extend({
 
@@ -204,8 +205,10 @@ define(function(require, exports, module) {
 
                 query._type = selectedContentTypeDescriptor.definition.getQName();
 
-                this.queryNodes(query, pagination).then(function() {
-                    callback(this);
+                OneTeam.projectBranch(self, function(branch) {
+                    DocLib.handleFindNodes(branch, query, null, pagination, function(err, result, map) {
+                        callback(map);
+                    });
                 });
             });
         },
