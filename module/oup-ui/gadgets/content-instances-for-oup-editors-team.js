@@ -192,21 +192,23 @@ define(function(require, exports, module) {
                 query = {};
             }
 
+            debugger;
             OneTeam.projectBranch(self, function(branch) {
 
+                debugger;
 
                 // selected content type
-                var selectedContentTypeDescriptor =  model.selectedContentTypeDescriptor;
+                var selectedContentTypeDescriptor = model.selectedContentTypeDescriptor;
                 if (!selectedContentTypeDescriptor)
                 {
                     // produce an empty node map
-                    return callback(new Gitana.NodeMap(this));
+                    return callback(new Gitana.NodeMap(Chain(branch)));
                 }
 
                 query._type = selectedContentTypeDescriptor.definition._qname;
-                // query._type = selectedContentTypeDescriptor.definition.getQName();
 
                 DocLib.handleFindNodes(branch, query, null, pagination, function(err, result, map) {
+                    debugger;
                     callback(map);
                 });
             });
