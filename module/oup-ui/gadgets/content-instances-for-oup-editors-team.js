@@ -196,9 +196,10 @@ define(function(require, exports, module) {
             OneTeam.projectBranch(self, function(branch) {
 
                 debugger;
+                query._type = selectedContentTypeDescriptor.definition._qname;
 
                 // selected content type
-                var selectedContentTypeDescriptor = self.observable("selected-content-type").get();
+                var selectedContentTypeDescriptor =  model.selectedContentTypeDescriptor;
                 if (!selectedContentTypeDescriptor)
                 {
                     // produce an empty node map
