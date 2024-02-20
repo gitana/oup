@@ -5,7 +5,6 @@ define(function(require, exports, module) {
     
     var Env = require("./env.js");
   
-    debugger;
     return Ratchet.Actions.register(
       "get-oversized-image-details",
       UI.AbstractIFrameAction.extend({
