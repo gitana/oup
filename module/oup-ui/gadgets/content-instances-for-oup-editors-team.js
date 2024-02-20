@@ -204,7 +204,8 @@ define(function(require, exports, module) {
                     return callback(new Gitana.NodeMap(this));
                 }
 
-                query._type = selectedContentTypeDescriptor.definition.getQName();
+                query._type = selectedContentTypeDescriptor.definition._qname;
+                // query._type = selectedContentTypeDescriptor.definition.getQName();
 
                 DocLib.handleFindNodes(branch, query, null, pagination, function(err, result, map) {
                     callback(map);
