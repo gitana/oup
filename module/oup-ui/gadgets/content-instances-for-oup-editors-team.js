@@ -192,9 +192,7 @@ define(function(require, exports, module) {
                 query = {};
             }
 
-            debugger;
             OneTeam.projectBranch(self, function(branch) {
-                debugger;
 
                 // selected content type
                 var selectedContentTypeDescriptors = model.selectedContentTypeDescriptors;
