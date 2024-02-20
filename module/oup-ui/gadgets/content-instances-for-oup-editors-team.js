@@ -101,7 +101,6 @@ define(function(require, exports, module) {
         {
             var self = this;
 
-            debugger;
             this.base(el, model, function() {
 
                 TemplateHelperFactory.create(self, "content-instances", function(err, renderTemplate) {
@@ -195,22 +194,28 @@ define(function(require, exports, module) {
 
             debugger;
             OneTeam.projectBranch(self, function(branch) {
-
                 debugger;
 
                 // selected content type
-                var selectedContentTypeDescriptor = model.selectedContentTypeDescriptor;
-                if (!selectedContentTypeDescriptor)
+                var selectedContentTypeDescriptors = model.selectedContentTypeDescriptors;
+                if (!selectedContentTypeDescriptors.length === 0)
                 {
                     // produce an empty node map
                     return callback(new Gitana.NodeMap(Chain(branch)));
                 }
 
-                query._type = selectedContentTypeDescriptor.definition._qname;
+                var _typeQNames = [];
+                for (var i = 0; i < selectedContentTypeDescriptors.length; i++)
+                {
+                    _typeQNames.push(selectedContentTypeDescriptors[i].qname);
+                }
 
-                DocLib.handleFindNodes(branch, query, null, pagination, function(err, result, map) {
-                    debugger;
-                    callback(map);
+                query._type = {
+                    "$in": _typeQNames
+                }
+
+                Chain(branch).queryNodes(query, pagination).then(function() {
+                    callback(this);
                 });
             });
         },
