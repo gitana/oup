@@ -192,10 +192,8 @@ define(function(require, exports, module) {
                 query = {};
             }
 
-            debugger;
             OneTeam.projectBranch(self, function(branch) {
 
-                debugger;
                 query._type = selectedContentTypeDescriptor.definition._qname;
 
                 // selected content type
@@ -209,7 +207,6 @@ define(function(require, exports, module) {
                 query._type = selectedContentTypeDescriptor.definition.getQName();
 
                 DocLib.handleFindNodes(branch, query, null, pagination, function(err, result, map) {
-                    debugger;
                     callback(map);
                 });
             });

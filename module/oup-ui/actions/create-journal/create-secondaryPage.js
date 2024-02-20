@@ -27,6 +27,7 @@ define(function (require, exports, module) {
         /* This method is called every time the action runs and can customize the config per invocation */
         beforeExecute: function(config, actionContext)
         {
+            debugger;
             // always call the base method
             this.base(config, actionContext);
             
