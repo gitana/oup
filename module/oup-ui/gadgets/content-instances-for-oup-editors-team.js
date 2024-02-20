@@ -101,6 +101,7 @@ define(function(require, exports, module) {
         {
             var self = this;
 
+            debugger;
             this.base(el, model, function() {
 
                 TemplateHelperFactory.create(self, "content-instances", function(err, renderTemplate) {
